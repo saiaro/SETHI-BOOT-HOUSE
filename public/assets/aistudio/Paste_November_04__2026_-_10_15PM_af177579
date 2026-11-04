@@ -1,0 +1,1300 @@
+# MASTER BUILD PROMPT — SETHI BOOT HOUSE
+## All-in-One Footwear Retail Management System (POS + CRM + ERP + E-Commerce)
+
+Act as a senior software architect, full-stack developer, database engineer, UI/UX designer, retail ERP consultant and QA engineer.
+
+Your task is to design and build a production-oriented, full-stack retail management platform for:
+
+**Business Name:** SETHI BOOT HOUSE  
+**Location:** Ratia, Haryana, India  
+**Business Type:** Footwear Retail  
+**Inventory Size:** Approximately 500–2,000 products  
+**Business Model:** Physical retail store + future online store.
+
+This is not a demo, landing page or static dashboard. Build a functional, secure, scalable business management application.
+
+The application must combine:
+
+1. Point of Sale (POS) and Billing Software
+2. Inventory and Warehouse Management
+3. Customer Relationship Management (CRM)
+4. Enterprise Resource Planning (ERP)
+5. Purchase and Supplier Management
+6. Accounting and Financial Management
+7. GST and Tax Management
+8. E-commerce and Online Order Management
+9. Employee and Staff Management
+10. Business Intelligence and Analytics
+
+---
+
+# PART 1 — TECHNOLOGY STACK
+
+Use the following architecture:
+
+Frontend:
+- React
+- TypeScript
+- Tailwind CSS
+- Responsive component architecture
+- Modern charting library
+- Reusable UI components
+
+Backend:
+- Supabase
+- PostgreSQL database
+- Supabase Authentication
+- Supabase Storage
+- Supabase Row Level Security
+- Secure server-side business logic using Edge Functions or equivalent backend services
+
+AI:
+- Google Gemini API for optional business insights, natural-language reporting and intelligent assistance.
+- Never use AI to calculate actual invoice totals, taxes, inventory balances or accounting figures.
+
+Application:
+- Responsive web application
+- Progressive Web App (PWA) support
+- Desktop-first POS experience
+- Tablet and mobile responsive layouts
+
+Important:
+Do not hardcode credentials, API keys or secrets.
+Use environment variables.
+Never expose service-role keys in frontend code.
+
+If any technology or integration is unavailable in the current development environment, implement a clean abstraction and document what is required to activate it.
+
+---
+
+# PART 2 — DESIGN SYSTEM
+
+Create a premium, professional retail management interface.
+
+Design direction:
+- Professional Retail
+- Modern enterprise SaaS
+- Clean and functional
+- High information density without visual clutter
+- White/light interface as default
+- Professional navy/blue accents
+- Neutral grey backgrounds
+- Clear typography
+- Consistent spacing
+- Subtle borders and shadows
+- Rounded but restrained components
+
+Design requirements:
+
+1. Desktop sidebar navigation.
+2. Responsive mobile navigation.
+3. Top navigation with global search.
+4. User profile and role information.
+5. Notification center.
+6. Language selector (English/Hindi).
+7. Breadcrumb navigation.
+8. Consistent tables, filters and forms.
+9. Loading states, empty states and error states.
+10. Confirmation dialogs for sensitive actions.
+
+The interface must feel like a professionally developed commercial ERP product.
+
+Avoid:
+- Excessive gradients.
+- Unnecessary animations.
+- Oversized cards.
+- Decorative elements that reduce usability.
+- Fake charts and dummy business metrics.
+
+Create a centralized design system with reusable components.
+
+---
+
+# PART 3 — APPLICATION NAVIGATION
+
+Create the following main sidebar navigation:
+
+1. Dashboard
+2. POS / Billing
+3. Sales
+4. Online Orders
+5. Products
+6. Inventory
+7. Customers
+8. Suppliers
+9. Purchases
+10. Expenses
+11. Accounts
+12. GST & Tax
+13. Employees
+14. Marketing & Loyalty
+15. Reports & Analytics
+16. Notifications
+17. Settings
+
+Each module must have its own functional pages and appropriate create, view, update, search and export operations.
+
+---
+
+# PART 4 — DASHBOARD
+
+Build an executive dashboard for the business owner.
+
+Display the following KPIs:
+
+- Today's total sales
+- Today's net sales
+- Number of invoices
+- Gross profit
+- Gross profit margin
+- Average order value
+- Total customers
+- New customers
+- Total inventory units
+- Inventory purchase value
+- Inventory selling value
+- Low-stock products
+- Out-of-stock products
+- Pending online orders
+- Customer outstanding payments
+- Supplier outstanding payments
+- Today's expenses
+
+Dashboard filters:
+- Today
+- Yesterday
+- Last 7 days
+- Last 30 days
+- This month
+- Previous month
+- Custom date range
+
+Charts:
+- Daily sales trend
+- Monthly revenue trend
+- Sales by payment method
+- Sales by brand
+- Sales by product category
+- Sales by footwear size
+- Sales by customer type
+- Gross profit trend
+
+Additional widgets:
+- Top 10 selling products
+- Top 10 selling brands
+- Slow-moving inventory
+- Low-stock alerts
+- Recent transactions
+- Recent purchases
+- Pending customer payments
+- Pending supplier payments
+
+All dashboard figures must be calculated from real database records.
+
+Never display fabricated statistics.
+
+---
+
+# PART 5 — PRODUCT MANAGEMENT
+
+Footwear requires advanced product-variant management.
+
+Create a product management system that supports:
+
+Product information:
+- Product name
+- Product description
+- Brand
+- Category
+- Subcategory
+- Manufacturer
+- Supplier
+- SKU
+- Barcode
+- HSN code
+- GST rate
+- Product image
+- Purchase price
+- MRP
+- Selling price
+- Wholesale price (optional)
+- Minimum selling price (optional)
+- Product status
+- Created date
+
+Footwear categories:
+- Men's shoes
+- Women's shoes
+- Kids' shoes
+- Sports shoes
+- Formal shoes
+- Casual shoes
+- Sandals
+- Slippers
+- Boots
+- School shoes
+- Other footwear
+
+Support:
+- International brands
+- Indian brands
+- Local brands
+- Unbranded products
+
+PRODUCT VARIANTS:
+
+Every product must support multiple variants.
+
+Example:
+
+Product: Sports Shoes
+Brand: Example Brand
+Colour: Black
+
+Variants:
+- Size 6
+- Size 7
+- Size 8
+- Size 9
+- Size 10
+
+Each variant must have:
+- Unique SKU
+- Unique barcode
+- Size
+- Colour
+- Stock quantity
+- Purchase cost
+- Selling price
+- MRP
+- Reorder level
+
+Support Indian footwear sizing and configurable size systems.
+
+Important:
+Stock must be tracked independently for every product-size-colour combination.
+
+Allow:
+- Add product
+- Edit product
+- Duplicate product
+- Delete/archive product safely
+- Bulk import from Excel/CSV
+- Bulk export
+- Barcode generation
+- Barcode label printing
+- Product image upload
+- Advanced product search
+- Filters by brand, category, size, colour and stock status
+
+Provide an easy bulk product import template.
+
+---
+
+# PART 6 — INVENTORY MANAGEMENT
+
+Build a complete inventory control system.
+
+Features:
+
+1. Real-time stock tracking.
+2. Variant-wise stock.
+3. Stock inward.
+4. Stock outward.
+5. Stock adjustments.
+6. Stock transfers.
+7. Damaged goods tracking.
+8. Missing stock tracking.
+9. Stock audit.
+10. Opening stock entry.
+11. Low-stock alerts.
+12. Out-of-stock alerts.
+13. Dead-stock identification.
+14. Slow-moving stock reports.
+15. Fast-moving stock reports.
+16. Inventory valuation.
+17. Stock movement history.
+
+Maintain an immutable inventory movement ledger.
+
+Every stock change must record:
+- Product
+- Variant
+- Quantity
+- Previous stock
+- New stock
+- Movement type
+- Reference transaction
+- Date and time
+- User responsible
+- Reason
+
+Stock must automatically update when:
+- A sale is completed.
+- A purchase is received.
+- A sales return is accepted.
+- A purchase return is processed.
+- Stock is damaged.
+- A manual adjustment is approved.
+
+Prevent negative stock by default. Allow an owner-controlled override with an audit trail.
+
+Never modify inventory quantities silently.
+
+---
+
+# PART 7 — POS AND BILLING SYSTEM
+
+This is one of the most important modules.
+
+Create a high-speed POS interface optimized for Windows computers and Android tablets.
+
+POS layout:
+
+Left section:
+- Product search
+- Barcode input
+- Product categories
+- Brand filters
+- Product grid
+
+Right section:
+- Shopping cart
+- Quantity adjustment
+- Variant selection
+- Price
+- Discount
+- Tax breakdown
+- Total payable
+
+Billing workflow:
+
+1. Scan barcode or search product.
+2. Select size and colour variant.
+3. Add product to cart.
+4. Modify quantity.
+5. Apply authorized discount.
+6. Select customer or create new customer.
+7. Select payment method.
+8. Complete payment.
+9. Generate invoice.
+10. Print receipt.
+
+Payment methods:
+- Cash
+- UPI
+- Debit/credit card
+- Bank transfer
+- Payment gateway
+- Customer credit
+- Split payment
+
+Billing features:
+- GST tax invoices
+- Cash invoices
+- Quotations
+- Sales orders
+- Credit sales
+- Partial payments
+- Multiple payment methods
+- Discount by percentage
+- Discount by fixed amount
+- Cart hold and resume
+- Bill cancellation with authorization
+- Sales returns
+- Exchanges
+- Refunds
+- Reprint invoices
+- Thermal printing (58mm and 80mm)
+- A4 invoice printing
+
+GST:
+
+Support:
+- CGST
+- SGST
+- IGST
+- HSN code
+- Configurable product tax rates
+- Tax-inclusive pricing
+- Tax-exclusive pricing
+- Tax breakdown
+- GST invoice numbering
+- GST reports
+
+Use product-specific configured tax rates and effective dates. Never assume every footwear item has the same GST rate.
+
+GST calculations must be deterministic and tested.
+
+Use proper decimal arithmetic or integer paise calculations.
+
+Invoice requirements:
+- Business name
+- Business address
+- GSTIN
+- Invoice number
+- Invoice date
+- Customer details
+- Product descriptions
+- HSN
+- Quantity
+- Rate
+- Discount
+- Taxable value
+- Tax breakdown
+- Grand total
+- Payment details
+
+Provide configurable invoice templates.
+
+Important:
+Use database transactions for billing. A completed sale must atomically create the invoice, payment records and stock movements. Prevent duplicate billing from repeated clicks or network retries.
+
+---
+
+# PART 8 — SALES MANAGEMENT
+
+Create a central sales register.
+
+Features:
+- All sales
+- Invoice details
+- Sales by date
+- Sales by customer
+- Sales by product
+- Sales by brand
+- Sales by payment method
+- Cancelled invoices
+- Returned products
+- Refunded transactions
+- Outstanding invoices
+
+Provide filters:
+- Invoice number
+- Customer
+- Date range
+- Payment status
+- Sales channel
+- Employee
+
+Allow PDF and Excel exports.
+
+---
+
+# PART 9 — CUSTOMER CRM
+
+Create a comprehensive customer database.
+
+Customer fields:
+- Customer name
+- Mobile number
+- WhatsApp number
+- Email
+- Address
+- City
+- State
+- Birthday
+- Gender (optional)
+- Customer type
+- Preferred brands
+- Preferred sizes
+- Notes
+- Registration date
+
+Customer profile should show:
+- Total purchases
+- Total spending
+- Purchase history
+- Last purchase date
+- Average order value
+- Outstanding balance
+- Loyalty points
+- Returns and exchanges
+- Preferred brands
+- Preferred sizes
+
+CRM features:
+- Customer segmentation
+- New customers
+- Repeat customers
+- VIP customers
+- Inactive customers
+- High-value customers
+- Customer lifetime value
+- Birthday reminders
+- Repeat purchase reminders
+- Loyalty points
+- Membership levels
+- Customer credit ledger
+- Customer notes
+
+Create a customer communication history.
+
+---
+
+# PART 10 — LOYALTY AND MARKETING
+
+Build a customer loyalty system.
+
+Features:
+- Configurable loyalty points per purchase.
+- Redemption rules.
+- Membership tiers.
+- Customer rewards.
+- Birthday discounts.
+- Special offers.
+- Promotional campaigns.
+- Customer segmentation.
+
+WhatsApp:
+- Send invoice link.
+- Send order confirmation.
+- Send payment reminders.
+- Send promotional messages.
+- Send birthday greetings.
+
+SMS:
+- Invoice confirmation.
+- Order confirmation.
+- Payment confirmation.
+- Important customer notifications.
+
+Important:
+Integrate only through authorized WhatsApp Business and SMS providers.
+
+Create provider configuration screens.
+
+Do not simulate successful message delivery when no provider is connected.
+
+---
+
+# PART 11 — SUPPLIER MANAGEMENT
+
+Supplier fields:
+- Supplier name
+- Company name
+- Contact person
+- Phone number
+- Email
+- Address
+- GSTIN
+- Payment terms
+- Opening balance
+
+Supplier profile:
+- Purchase history
+- Outstanding payments
+- Total purchases
+- Purchase returns
+- Payment history
+- Supplier ledger
+
+Features:
+- Add supplier
+- Edit supplier
+- Supplier statements
+- Outstanding payment reports
+- Supplier-wise purchase reports
+- Supplier performance
+
+---
+
+# PART 12 — PURCHASE MANAGEMENT
+
+Build a complete purchase workflow.
+
+Purchase process:
+
+1. Create purchase order.
+2. Select supplier.
+3. Add products and variants.
+4. Enter quantities.
+5. Enter purchase prices.
+6. Record discounts.
+7. Calculate GST.
+8. Save purchase order.
+9. Receive goods.
+10. Record received quantities.
+11. Generate goods receipt note.
+12. Create purchase invoice.
+13. Update inventory.
+14. Update supplier ledger.
+
+Support:
+- Partial goods receipt
+- Purchase returns
+- Supplier credit
+- Partial supplier payments
+- Multiple payment methods
+- Purchase attachments
+- Purchase history
+
+Track purchase costs separately from retail selling prices.
+
+---
+
+# PART 13 — ACCOUNTING AND FINANCIAL MANAGEMENT
+
+Build a practical retail accounting module.
+
+Features:
+
+1. Daily cash book.
+2. Bank book.
+3. Cash register.
+4. Income tracking.
+5. Expense tracking.
+6. Accounts receivable.
+7. Accounts payable.
+8. Customer credit ledger.
+9. Supplier ledger.
+10. Payment vouchers.
+11. Receipt vouchers.
+12. Journal entries.
+13. Profit and loss statement.
+14. Balance sheet.
+15. Trial balance.
+16. Cash flow report.
+
+Expense categories:
+- Rent
+- Electricity
+- Salary
+- Transportation
+- Marketing
+- Packaging
+- Maintenance
+- Internet
+- Other expenses
+
+Maintain an audit trail for accounting entries.
+
+Ensure sales, purchases, returns, payments and expenses are correctly reflected in the accounting system.
+
+Do not double-count revenue or payments.
+
+Support accounting period closing and opening balances.
+
+---
+
+# PART 14 — GST AND TAX MANAGEMENT
+
+Create a GST management section.
+
+Features:
+- GSTIN configuration
+- Business registration details
+- Product-wise HSN
+- Tax rate configuration
+- CGST/SGST/IGST reports
+- Sales register
+- Purchase register
+- Input tax summary
+- Output tax summary
+- Credit/debit notes
+- GST reconciliation exports
+- GSTR-oriented report exports
+
+Keep GST rates and compliance rules configurable and effective-dated.
+
+Design integration points for an authorized GST API provider.
+
+Do not claim that GST returns have been filed unless a verified filing integration confirms success.
+
+E-invoicing and e-way bill features should be configurable based on legal applicability and authorized provider access.
+
+---
+
+# PART 15 — ONLINE STORE AND ORDER MANAGEMENT
+
+The business plans to launch an online footwear store.
+
+Prepare the application architecture to support a customer-facing e-commerce storefront.
+
+Store features:
+- Homepage
+- Categories
+- Product listing
+- Product detail
+- Product images
+- Size selection
+- Colour selection
+- Search
+- Filters
+- Shopping cart
+- Checkout
+- Customer accounts
+- Order history
+- Wishlist
+- Coupons
+- Offers
+- Payment gateway
+- Cash on delivery
+
+Order management:
+- New orders
+- Confirmed orders
+- Processing
+- Packed
+- Shipped
+- Delivered
+- Cancelled
+- Returned
+- Refunded
+
+Features:
+- Shipping address
+- Shipping charges
+- Delivery tracking
+- Courier information
+- Order notes
+- COD management
+- Online payment reconciliation
+
+Most important:
+
+The online store and physical store must use the same centralized inventory.
+
+If a size 8 shoe is sold in the physical store, the available quantity on the online store must update.
+
+Implement stock reservations for online orders with configurable expiry and release rules.
+
+Prevent overselling through database-level concurrency controls.
+
+Instagram sales:
+
+Allow staff to create manual orders originating from:
+- Instagram
+- WhatsApp
+- Phone calls
+- Walk-in customers
+- Website
+
+Record the source channel for reporting.
+
+---
+
+# PART 16 — EMPLOYEE MANAGEMENT
+
+Support employee records.
+
+Fields:
+- Name
+- Phone
+- Email
+- Role
+- Joining date
+- Salary
+- Status
+
+Features:
+- Attendance
+- Leave records
+- Salary records
+- Employee-wise sales
+- Discount permissions
+- Activity logs
+
+Initial users:
+- Owner
+- Accountant
+
+Prepare the permission system for additional roles:
+- Store manager
+- Billing operator
+- Inventory manager
+- Salesperson
+
+---
+
+# PART 17 — REPORTS AND ANALYTICS
+
+Build a comprehensive reports module.
+
+Sales:
+- Daily sales
+- Monthly sales
+- Annual sales
+- Product-wise sales
+- Brand-wise sales
+- Category-wise sales
+- Size-wise sales
+- Employee-wise sales
+- Channel-wise sales
+
+Inventory:
+- Current stock
+- Stock valuation
+- Low stock
+- Dead stock
+- Fast-moving products
+- Slow-moving products
+- Stock movement
+- Damaged stock
+
+Customers:
+- New customers
+- Repeat customers
+- Highest spending customers
+- Inactive customers
+- Customer retention
+
+Finance:
+- Gross profit
+- Net profit
+- Profit margins
+- Expenses
+- Outstanding payments
+- Cash flow
+- GST summaries
+
+Purchases:
+- Supplier-wise purchases
+- Purchase returns
+- Outstanding supplier balances
+
+Every report should support:
+- Date filters
+- Search
+- Sorting
+- Pagination
+- Excel export
+- CSV export
+- PDF printing
+
+Clearly distinguish revenue, gross profit, net profit, cash collected and outstanding credit.
+
+---
+
+# PART 18 — NOTIFICATIONS
+
+Build an internal notification center.
+
+Alerts:
+- Low stock
+- Out of stock
+- New online order
+- Pending customer payment
+- Supplier payment due
+- Birthday reminder
+- Failed payment
+- Inventory discrepancy
+- Important system event
+
+Support configurable notifications.
+
+---
+
+# PART 19 — USER AUTHENTICATION AND SECURITY
+
+Implement secure login.
+
+Initial roles:
+1. Owner
+2. Accountant
+
+Owner permissions:
+- Full application access.
+- Financial reports.
+- Product management.
+- Inventory.
+- User management.
+- System settings.
+- Approvals.
+
+Accountant permissions:
+- Sales records.
+- Purchases.
+- Expenses.
+- Supplier payments.
+- Customer payments.
+- Accounting reports.
+- GST reports.
+
+Allow the owner to customize permissions.
+
+Security requirements:
+- Supabase Row Level Security.
+- Server-side authorization.
+- Secure password handling.
+- Session management.
+- Audit logs.
+- Data validation.
+- Protection against duplicate transactions.
+- No secret keys in frontend.
+- No unrestricted database access.
+
+Financial and stock-changing actions must be auditable.
+
+---
+
+# PART 20 — SETTINGS
+
+Create centralized settings for:
+
+Business:
+- Business name
+- Logo
+- Address
+- Phone
+- Email
+- GSTIN
+- State
+- Pincode
+
+Billing:
+- Invoice prefix
+- Invoice numbering
+- Default payment methods
+- Receipt size
+- Tax configuration
+- Discount limits
+
+Inventory:
+- SKU generation
+- Barcode format
+- Reorder levels
+- Stock policies
+
+CRM:
+- Loyalty rules
+- Membership settings
+
+Integrations:
+- WhatsApp Business
+- SMS provider
+- Payment gateway
+- GST provider
+- Google Sheets
+- Cloud storage
+
+System:
+- User management
+- Role management
+- Language
+- Backup
+- Data export
+- Audit logs
+
+---
+
+# PART 21 — BILINGUAL SUPPORT
+
+Support:
+- English
+- Hindi
+
+Build a proper internationalization system.
+
+Requirements:
+- Language selector.
+- All navigation translated.
+- Forms translated.
+- Buttons translated.
+- Validation messages translated.
+- Notifications translated.
+- Reports translated.
+- Invoice labels configurable.
+
+Use Unicode-compatible fonts.
+
+Store business data consistently and support Hindi customer names.
+
+Currency:
+INR (₹)
+
+Date format:
+DD-MM-YYYY
+
+Timezone:
+Asia/Kolkata
+
+---
+
+# PART 22 — DATABASE DESIGN
+
+Design a normalized PostgreSQL schema.
+
+Include appropriate tables for:
+
+- organizations
+- branches
+- users
+- roles
+- permissions
+- customers
+- suppliers
+- employees
+- brands
+- categories
+- products
+- product_variants
+- barcodes
+- inventory
+- inventory_movements
+- stock_adjustments
+- stock_audits
+- purchases
+- purchase_items
+- goods_receipts
+- supplier_payments
+- sales
+- sale_items
+- invoices
+- payments
+- refunds
+- returns
+- exchanges
+- expenses
+- expense_categories
+- accounts
+- journal_entries
+- journal_entry_lines
+- customer_ledger
+- supplier_ledger
+- loyalty_accounts
+- loyalty_transactions
+- online_orders
+- shipping_records
+- coupons
+- notifications
+- audit_logs
+- application_settings
+
+Use:
+- UUID primary keys.
+- Foreign key constraints.
+- Appropriate indexes.
+- Created_at and updated_at.
+- Soft deletion where appropriate.
+- Unique invoice numbers.
+- Unique SKU and barcode constraints.
+- Database transactions.
+- Row Level Security policies.
+
+Use integer paise or suitable precise numeric data types for monetary calculations.
+
+Do not store financial values using floating-point types.
+
+Create database migrations and seed scripts.
+
+Design the architecture to support multiple branches in the future, even though the current business has one store.
+
+---
+
+# PART 23 — HARDWARE COMPATIBILITY
+
+The application must work with:
+
+- Windows desktop computers.
+- Android tablets.
+- USB barcode scanners.
+- Bluetooth barcode scanners.
+- 58mm thermal printers.
+- 80mm thermal printers.
+- A4 printers.
+
+Barcode scanning:
+- Support keyboard-wedge scanners.
+- Automatically detect scanner input where possible.
+- Focus barcode input during POS checkout.
+- Add scanned products to cart.
+- Show clear feedback for unknown barcodes.
+
+Printing:
+- Provide thermal receipt templates.
+- Provide A4 GST invoice templates.
+- Support print preview.
+- Allow reprinting.
+- Ensure correct page sizing.
+
+Test browser printing and document any additional requirements for direct printing.
+
+Do not promise universal silent printing without a compatible local printing bridge.
+
+---
+
+# PART 24 — BACKUP AND DATA MANAGEMENT
+
+Implement:
+- Automated database backups using the chosen hosting provider's backup capabilities.
+- Configurable backup schedule.
+- Manual export.
+- Product data export.
+- Customer data export.
+- Sales export.
+- Purchase export.
+- Financial data export.
+- Restore procedures.
+- Backup status monitoring.
+
+Backups must be independent of the application frontend.
+
+Do not claim a backup succeeded unless the backend confirms it.
+
+---
+
+# PART 25 — DEVELOPMENT AND IMPLEMENTATION RULES
+
+Build the application in controlled phases.
+
+Do not attempt to generate every module in one unverified operation.
+
+PHASE 1:
+- Project foundation.
+- Design system.
+- Authentication.
+- Database schema.
+- Dashboard shell.
+- Language switching.
+- Role-based permissions.
+
+PHASE 2:
+- Product management.
+- Variants.
+- Barcode system.
+- Inventory.
+- Stock movements.
+- Bulk imports.
+
+PHASE 3:
+- POS.
+- GST billing.
+- Payment management.
+- Printing.
+- Returns and exchanges.
+
+PHASE 4:
+- CRM.
+- Customer ledger.
+- Loyalty.
+- WhatsApp/SMS integration framework.
+
+PHASE 5:
+- Suppliers.
+- Purchase management.
+- Expenses.
+- Accounting.
+- GST reports.
+
+PHASE 6:
+- Online order management.
+- Customer-facing storefront.
+- Payment gateway.
+- Shipping integration.
+
+PHASE 7:
+- Reports.
+- Business analytics.
+- Staff management.
+- Notifications.
+- Backup and exports.
+
+PHASE 8:
+- Full system testing.
+- Performance optimization.
+- Security verification.
+- Production deployment.
+
+For every phase:
+
+1. Implement actual working functionality.
+2. Create the required database migrations.
+3. Implement backend logic.
+4. Implement frontend screens.
+5. Connect the UI to real database records.
+6. Add validation.
+7. Handle loading and error states.
+8. Test all important workflows.
+9. Verify permissions.
+10. Document completed functionality and remaining integrations.
+
+Never use fake buttons or nonfunctional UI elements.
+
+Never substitute hardcoded sample data for live database operations.
+
+If sample data is needed, clearly mark it as demo data.
+
+Do not delete or overwrite working features when implementing subsequent phases.
+
+Keep a development checklist and report:
+- Completed features
+- Pending features
+- Known issues
+- Required credentials
+- Required external integrations
+- Test results
+
+---
+
+# PART 26 — ACCEPTANCE TESTS
+
+The system is not complete until these workflows pass.
+
+TEST 1: Product Creation
+Create a shoe product with multiple sizes and colours, unique SKUs and barcodes.
+
+TEST 2: Purchase
+Create a supplier purchase order, receive products and verify inventory increases correctly.
+
+TEST 3: POS Billing
+Scan a barcode, create an invoice, apply a discount, calculate GST and accept payment.
+
+TEST 4: Inventory Deduction
+Verify the exact sold variant's stock decreases after successful billing.
+
+TEST 5: Sales Return
+Return an item and verify refund, customer ledger and stock movement.
+
+TEST 6: Exchange
+Exchange a size 8 shoe for a size 9 shoe and verify both stock movements.
+
+TEST 7: Credit Sale
+Create a customer credit sale and verify outstanding balance.
+
+TEST 8: Supplier Payment
+Record a supplier payment and verify the supplier ledger.
+
+TEST 9: Online Order
+Create an online order and reserve inventory.
+
+TEST 10: Shared Inventory
+Sell the same variant online and in-store under concurrent conditions and verify that overselling is prevented.
+
+TEST 11: Permissions
+Verify accountant access cannot perform unauthorized owner-only actions.
+
+TEST 12: Reports
+Verify dashboard sales, inventory and financial reports match underlying database transactions.
+
+TEST 13: Printing
+Print test invoices on 58mm, 80mm and A4 formats.
+
+TEST 14: Language
+Verify that English and Hindi interfaces work across all major modules.
+
+TEST 15: Backup
+Verify that backups can be created and a documented restoration procedure works.
+
+---
+
+# FINAL INSTRUCTION
+
+Start by establishing the application foundation and architecture.
+
+First provide:
+1. Architecture overview.
+2. Database relationship plan.
+3. Module development plan.
+4. Project folder structure.
+5. Phase 1 implementation checklist.
+
+Then begin building Phase 1.
+
+Do not merely explain how the application could be built. Actually implement it in the available development environment.
+
+Prioritize data integrity, reliability, ease of billing, inventory accuracy, security and usability.
+
+The final result must be a professional, operational retail ERP for SETHI BOOT HOUSE that can grow from one physical footwear store into a multi-channel retail business.
+
+**Product vision: One business. One platform. Complete control.**

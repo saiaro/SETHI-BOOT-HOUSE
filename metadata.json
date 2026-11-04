@@ -1,0 +1,6 @@
+{
+  "name": "SETHI BOOT HOUSE — Footwear Retail ERP & POS",
+  "description": "Enterprise Footwear Retail Management System (POS, Inventory, Billing, Accounting, GST, CRM & E-Commerce) for Sethi Boot House, Ratia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
