@@ -43,6 +43,7 @@ export const PosView: React.FC = () => {
   const [billDiscountType, setBillDiscountType] = useState<'percent' | 'fixed'>('percent');
   const [billDiscountValue, setBillDiscountValue] = useState<number>(0);
   const [cartNotes, setCartNotes] = useState<string>('');
+  const [mobileTab, setMobileTab] = useState<'catalog' | 'cart'>('catalog');
 
   // Modals
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
@@ -354,9 +355,46 @@ export const PosView: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row h-[calc(100vh-4rem)] bg-slate-100 overflow-hidden">
+    <div className="flex flex-col lg:flex-row h-full min-h-[calc(100vh-4rem)] bg-slate-100 overflow-hidden relative">
+      {/* Mobile Tab Switcher (Visible on < lg screens) */}
+      <div className="lg:hidden w-full border-b border-slate-200 bg-white p-2 shrink-0 z-10">
+        <div className="grid grid-cols-2 gap-1.5 w-full bg-slate-100 p-1 rounded-lg text-xs font-bold">
+          <button
+            type="button"
+            onClick={() => setMobileTab('catalog')}
+            className={`py-2 px-3 rounded-md transition-colors flex items-center justify-center gap-1.5 min-h-[40px] ${
+              mobileTab === 'catalog'
+                ? 'bg-white text-blue-900 shadow-xs font-extrabold'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <Search className="h-4 w-4" />
+            <span>Catalog &amp; Scan</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobileTab('cart')}
+            className={`py-2 px-3 rounded-md transition-colors flex items-center justify-center gap-1.5 min-h-[40px] relative ${
+              mobileTab === 'cart'
+                ? 'bg-white text-blue-900 shadow-xs font-extrabold'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <ShoppingCart className="h-4 w-4" />
+            <span>Cart ({cartItems.reduce((s, i) => s + i.quantity, 0)})</span>
+            {cartItems.length > 0 && (
+              <span className="ml-1 rounded bg-blue-900 text-white px-1.5 py-0.5 text-[10px] font-mono">
+                ₹{grandTotal}
+              </span>
+            )}
+          </button>
+        </div>
+      </div>
+
       {/* LEFT SECTION: Catalog, Barcode Search & Fast Grid */}
-      <div className="flex-1 flex flex-col min-w-0 border-r border-slate-200 bg-white">
+      <div className={`flex-1 flex flex-col min-w-0 border-r border-slate-200 bg-white ${
+        mobileTab === 'catalog' ? 'flex' : 'hidden lg:flex'
+      }`}>
         {/* Barcode Search Header */}
         <div className="border-b border-slate-200 p-3 bg-slate-50 flex items-center gap-3">
           <form onSubmit={handleBarcodeSubmit} className="relative flex-1">
@@ -539,10 +577,10 @@ export const PosView: React.FC = () => {
                           key={variant.id}
                           disabled={variant.stockQuantity <= 0 && !settings.negativeStockAllowed}
                           onClick={() => addVariantToCart(product, variant)}
-                          className={`rounded px-1.5 py-1 text-[11px] font-bold transition-all border ${
+                          className={`rounded px-2 py-1 text-xs font-bold transition-all border min-h-[34px] min-w-[34px] flex items-center justify-center ${
                             variant.stockQuantity <= 0
                               ? 'border-slate-200 bg-slate-100 text-slate-400 cursor-not-allowed line-through'
-                              : 'border-blue-900/40 bg-blue-50/50 text-blue-900 hover:bg-blue-900 hover:text-white'
+                              : 'border-blue-900/40 bg-blue-50/50 text-blue-900 hover:bg-blue-900 hover:text-white active:scale-95'
                           }`}
                           title={`Size ${variant.size} • MRP ₹${variant.mrp} • Rate ₹${variant.sellingPrice} • Stock: ${variant.stockQuantity}`}
                         >
@@ -563,7 +601,9 @@ export const PosView: React.FC = () => {
       </div>
 
       {/* RIGHT SECTION: Cart, Customer Selector, Tax Calculation & Checkout */}
-      <div className="w-full lg:w-96 flex flex-col bg-white border-l border-slate-200 shadow-md">
+      <div className={`w-full lg:w-96 flex flex-col bg-white border-l border-slate-200 shadow-md ${
+        mobileTab === 'cart' ? 'flex' : 'hidden lg:flex'
+      }`}>
         {/* Customer Header */}
         <div className="border-b border-slate-200 bg-slate-50 p-3">
           <div className="flex items-center justify-between">
@@ -835,6 +875,30 @@ export const PosView: React.FC = () => {
           settings={settings}
           onConfirmPayment={handleConfirmPayment}
         />
+      )}
+
+      {/* Floating Mobile Cart Action Pill (Visible when on catalog and items are in cart) */}
+      {mobileTab === 'catalog' && cartItems.length > 0 && (
+        <div className="lg:hidden fixed bottom-18 left-3 right-3 z-30 animate-in fade-in slide-in-from-bottom-2 duration-150">
+          <button
+            type="button"
+            onClick={() => setMobileTab('cart')}
+            className="w-full flex items-center justify-between bg-blue-900 text-white px-4 py-3 rounded-xl shadow-xl font-bold text-xs sm:text-sm hover:bg-blue-800 transition-all active:scale-[0.98]"
+          >
+            <div className="flex items-center gap-2">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-800 text-xs font-mono font-bold">
+                {cartItems.reduce((s, i) => s + i.quantity, 0)}
+              </span>
+              <span>Pairs in Cart</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-black font-mono">₹{grandTotal}</span>
+              <span className="rounded bg-white/20 px-2 py-1 text-[11px] font-sans font-bold">
+                View Bill &rarr;
+              </span>
+            </div>
+          </button>
+        </div>
       )}
 
       {/* Quick Customer Modal */}

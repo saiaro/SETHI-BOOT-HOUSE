@@ -229,7 +229,8 @@ export const InventoryView: React.FC = () => {
             </div>
           </div>
 
-          <table className="w-full text-left text-xs border-collapse">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[700px] text-left text-xs border-collapse">
             <thead className="bg-slate-50 border-b border-slate-200 font-bold text-slate-700">
               <tr>
                 <th className="py-2.5 px-3">Product Name &amp; Brand</th>
@@ -280,6 +281,7 @@ export const InventoryView: React.FC = () => {
               })}
             </tbody>
           </table>
+          </div>
         </div>
       )}
 
@@ -304,7 +306,8 @@ export const InventoryView: React.FC = () => {
             </div>
           </div>
 
-          <table className="w-full text-left text-xs border-collapse">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[850px] text-left text-xs border-collapse">
             <thead className="bg-slate-50 border-b border-slate-200 font-bold text-slate-700">
               <tr>
                 <th className="py-2.5 px-3">Date &amp; Time</th>
@@ -349,6 +352,7 @@ export const InventoryView: React.FC = () => {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       )}
 

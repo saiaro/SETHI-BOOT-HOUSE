@@ -146,8 +146,8 @@ export const SalesView: React.FC = () => {
       </div>
 
       {/* Invoices Table */}
-      <div className="rounded-lg border border-slate-200 bg-white shadow-xs overflow-hidden">
-        <table className="w-full text-left text-xs border-collapse">
+      <div className="rounded-lg border border-slate-200 bg-white shadow-xs overflow-x-auto">
+        <table className="w-full min-w-[780px] text-left text-xs border-collapse">
           <thead className="bg-slate-50 border-b border-slate-200 font-bold text-slate-700">
             <tr>
               <th className="py-2.5 px-3">Invoice Number</th>

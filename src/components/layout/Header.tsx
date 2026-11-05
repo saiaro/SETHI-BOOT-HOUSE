@@ -11,7 +11,8 @@ import {
   Clock, 
   AlertCircle,
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  Menu
 } from 'lucide-react';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { useAuth } from '../../context/AuthContext';
@@ -21,9 +22,10 @@ import { UserRole } from '../../types/database';
 interface HeaderProps {
   onOpenNotifications: () => void;
   onOpenQuickSale: () => void;
+  onOpenMobileMenu?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenNotifications, onOpenQuickSale }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenNotifications, onOpenQuickSale, onOpenMobileMenu }) => {
   const { language, setLanguage, t } = useTranslation();
   const { currentUser, switchUser, users } = useAuth();
   const { notifications, globalSearch, setGlobalSearch, setIsStorefrontOpen, settings } = useStore();
@@ -32,22 +34,33 @@ export const Header: React.FC<HeaderProps> = ({ onOpenNotifications, onOpenQuick
   const unreadCount = notifications.filter(n => !n.read).length;
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 w-full items-center justify-between border-b border-slate-200 bg-white px-4 md:px-6 shadow-xs">
-      {/* Left: Global Search & Location */}
-      <div className="flex items-center gap-4 flex-1 max-w-xl">
+    <header className="sticky top-0 z-30 flex h-15 w-full items-center justify-between border-b border-slate-200 bg-white px-2.5 sm:px-4 md:px-6 shadow-xs">
+      {/* Left: Mobile Hamburger & Search */}
+      <div className="flex items-center gap-2 flex-1 max-w-xl min-w-0 mr-2">
+        {/* Mobile Hamburger Menu Button */}
+        {onOpenMobileMenu && (
+          <button
+            onClick={onOpenMobileMenu}
+            className="flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 min-h-[44px] min-w-[44px] md:hidden"
+            aria-label="Open navigation menu"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        )}
+
         <div className="relative w-full">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
           <input
             type="text"
             value={globalSearch}
             onChange={(e) => setGlobalSearch(e.target.value)}
             placeholder={t.searchPlaceholder}
-            className="w-full rounded-md border border-slate-200 bg-slate-50 py-1.5 pl-9 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-navy-600 focus:bg-white focus:outline-hidden focus:ring-1 focus:ring-blue-600"
+            className="w-full rounded-md border border-slate-200 bg-slate-50 py-1.5 pl-8 pr-3 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-navy-600 focus:bg-white focus:outline-hidden focus:ring-1 focus:ring-blue-600"
           />
           {globalSearch && (
             <button 
               onClick={() => setGlobalSearch('')}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-700"
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-700"
             >
               ✕
             </button>
@@ -56,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenNotifications, onOpenQuick
       </div>
 
       {/* Right Controls */}
-      <div className="flex items-center gap-2 md:gap-3">
+      <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
         {/* Customer Storefront Live Button */}
         <button
           onClick={() => setIsStorefrontOpen(true)}
@@ -64,17 +77,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenNotifications, onOpenQuick
           title="Open shared inventory customer e-commerce store"
         >
           <Store className="h-3.5 w-3.5 text-emerald-600" />
-          <span>Online Store</span>
+          <span className="hidden md:inline">Online Store</span>
           <ExternalLink className="h-3 w-3 opacity-60" />
         </button>
 
         {/* Quick New Sale button */}
         <button
           onClick={onOpenQuickSale}
-          className="flex items-center gap-1.5 rounded-md bg-blue-900 px-3 py-1.5 text-xs font-medium text-white shadow-xs hover:bg-blue-800 transition-colors"
+          className="flex items-center gap-1.5 rounded-md bg-blue-900 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-white shadow-xs hover:bg-blue-800 transition-colors min-h-[36px]"
+          title={t.quickSale}
         >
           <ReceiptText className="h-3.5 w-3.5" />
-          <span>{t.quickSale}</span>
+          <span className="hidden sm:inline">{t.quickSale}</span>
         </button>
 
         {/* Language Switcher */}
