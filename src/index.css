@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@layer utilities {
+  /* Ticker infinite animation */
+  @keyframes ticker-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-ticker-infinite {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 32s linear infinite;
+  }
+
+  .animate-ticker-infinite:hover {
+    animation-play-state: paused;
+  }
+}
+
+:root {
+  --color-sbh-bg: #FAF9F6;
+  --color-sbh-surface: #FFFFFF;
+  --color-sbh-cream: #F3EDE3;
+  --color-sbh-blue-tint: #EAF2F8;
+  --color-sbh-navy: #102F4D;
+  --color-sbh-navy-secondary: #183E5D;
+  --color-sbh-red: #C91920;
+  --color-sbh-text: #17212B;
+  --color-sbh-muted: #6C747C;
+  --color-sbh-border: #E6E3DE;
+}

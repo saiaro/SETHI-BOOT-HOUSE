@@ -78,7 +78,14 @@ export class StorageEngine {
 
   private constructor() {
     this.settings = loadFromStorage(DB_KEYS.SETTINGS, INITIAL_SETTINGS);
-    this.products = loadFromStorage(DB_KEYS.PRODUCTS, INITIAL_PRODUCTS);
+    const storedProducts = loadFromStorage<Product[]>(DB_KEYS.PRODUCTS, INITIAL_PRODUCTS);
+    // Ensure newly catalogued models (Nike, Adidas, Puma, Skechers, Reebok, Woodland) exist in storage
+    const existingIds = new Set(storedProducts.map(p => p.id));
+    const missing = INITIAL_PRODUCTS.filter(p => !existingIds.has(p.id));
+    this.products = missing.length > 0 ? [...storedProducts, ...missing] : storedProducts;
+    if (missing.length > 0) {
+      saveToStorage(DB_KEYS.PRODUCTS, this.products);
+    }
     this.customers = loadFromStorage(DB_KEYS.CUSTOMERS, INITIAL_CUSTOMERS);
     this.suppliers = loadFromStorage(DB_KEYS.SUPPLIERS, INITIAL_SUPPLIERS);
     this.invoices = loadFromStorage(DB_KEYS.INVOICES, INITIAL_INVOICES);
@@ -985,7 +992,43 @@ export class StorageEngine {
 
     this.onlineOrders.unshift(newOrder);
 
-    // Add alert notification
+    // 3. Connect to Customer CRM: auto-register or update customer profile & loyalty points
+    let customer = this.customers.find(c => c.phone && c.phone === orderData.phone);
+    const pointsEarned = Math.floor((orderData.totalAmount / 100) * (this.settings.loyaltyPointsPer100Rs || 2));
+
+    if (!customer) {
+      const newCustomer: Customer = {
+        id: `cust-on-${Date.now()}`,
+        name: orderData.customerName,
+        phone: orderData.phone,
+        address: orderData.shippingAddress,
+        city: orderData.city || 'Ratia',
+        state: orderData.state || 'Haryana',
+        pincode: orderData.pincode || '125050',
+        customerType: 'Regular',
+        preferredBrands: [],
+        preferredSizes: orderData.items.map(i => i.size),
+        outstandingBalance: 0,
+        loyaltyPoints: pointsEarned,
+        totalPurchasesCount: 1,
+        totalSpent: orderData.totalAmount,
+        notes: `Online Store E-Commerce Shopper (First Order: ${orderNumber})`,
+        createdAt: now
+      };
+      this.customers.unshift(newCustomer);
+    } else {
+      customer.totalSpent = (customer.totalSpent || 0) + orderData.totalAmount;
+      customer.totalPurchasesCount = (customer.totalPurchasesCount || 0) + 1;
+      customer.loyaltyPoints = (customer.loyaltyPoints || 0) + pointsEarned;
+      if (orderData.shippingAddress && !customer.address) {
+        customer.address = orderData.shippingAddress;
+      }
+      if (orderData.city && !customer.city) {
+        customer.city = orderData.city;
+      }
+    }
+
+    // 4. Add alert notification in CRM notification center
     this.notifications.unshift({
       id: `notif-${Date.now()}`,
       title: 'New Online Order Placed',
@@ -996,6 +1039,7 @@ export class StorageEngine {
       createdAt: now
     });
 
+    saveToStorage(DB_KEYS.CUSTOMERS, this.customers);
     saveToStorage(DB_KEYS.PRODUCTS, this.products);
     saveToStorage(DB_KEYS.MOVEMENTS, this.movements);
     saveToStorage(DB_KEYS.ONLINE_ORDERS, this.onlineOrders);

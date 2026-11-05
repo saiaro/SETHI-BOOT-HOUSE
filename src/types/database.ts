@@ -15,6 +15,7 @@ export type FootwearCategory =
   | "Men's Shoes"
   | "Women's Shoes"
   | "Kids' Shoes"
+  | "Sneakers"
   | "Sports Shoes"
   | "Formal Shoes"
   | "Casual Shoes"
@@ -36,6 +37,9 @@ export type FootwearBrand =
   | 'Puma'
   | 'Nike'
   | 'Adidas'
+  | 'Skechers'
+  | 'Reebok'
+  | 'Woodland'
   | 'Local / Unbranded';
 
 export interface ProductVariant {

@@ -29,6 +29,7 @@ export const DashboardView: React.FC = () => {
     onlineOrders, 
     movements, 
     kpis, 
+    settings,
     setActiveModule,
     setIsStorefrontOpen 
   } = useStore();
