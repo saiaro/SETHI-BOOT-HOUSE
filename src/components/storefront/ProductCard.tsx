@@ -47,7 +47,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       {/* Top Badges & Wishlist Trigger */}
       <div className="absolute top-2.5 left-2.5 right-2.5 z-10 flex items-center justify-between pointer-events-none">
         {discountPercent > 0 ? (
-          <span className="bg-[#C91920] text-white text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-sm uppercase tracking-wider shadow-xs">
+          <span className="bg-[#C91920] text-white text-[10px] font-[700] px-2 py-0.5 rounded-sm uppercase tracking-wider shadow-xs">
             {discountPercent}% OFF
           </span>
         ) : (
@@ -84,7 +84,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         />
 
         {/* Quick View Pill on Hover (Desktop) */}
-        <div className="hidden sm:flex absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/95 border border-[#E6E3DE] text-[#102F4D] px-3 py-1 rounded-full text-xs font-bold items-center gap-1.5 shadow-sm">
+        <div className="hidden sm:flex absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/95 border border-[#E6E3DE] text-[#102F4D] px-3 py-1 rounded-full text-[12px] font-[600] items-center gap-1.5 shadow-sm">
           <Eye className="h-3.5 w-3.5" />
           <span>Quick View</span>
         </div>
@@ -94,15 +94,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       <div className="p-3 sm:p-4 flex flex-col flex-1">
         
         {/* Brand Name */}
-        <div className="flex items-center justify-between text-[11px] font-extrabold uppercase tracking-widest text-[#6C747C] mb-1">
+        <div className="flex items-center justify-between text-[11px] font-[700] uppercase tracking-[1px] text-[#6C747C] mb-1">
           <span>{product.brand}</span>
-          <span className="text-[#102F4D]/70 font-semibold">{product.gender}</span>
+          <span className="text-[#102F4D]/70 font-[600]">{product.gender}</span>
         </div>
 
         {/* Product Name */}
         <h3 
           onClick={() => onOpenDetails(product)}
-          className="font-bold text-sm sm:text-base text-[#102F4D] group-hover:text-[#C91920] transition-colors line-clamp-1 cursor-pointer mb-2"
+          className="text-[12px] sm:text-[13px] font-[600] leading-[1.4] text-[#17212B] group-hover:text-[#C91920] transition-colors line-clamp-1 cursor-pointer mb-2"
           title={product.name}
         >
           {product.name}
@@ -110,14 +110,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* UK Sizes Quick Selection */}
         <div className="mb-3">
-          <div className="flex items-center justify-between text-[10px] text-[#6C747C] mb-1 font-semibold">
+          <div className="flex items-center justify-between text-[10px] text-[#6C747C] mb-1 font-[600]">
             <span>SELECT UK SIZE:</span>
             {selectedVariant.stockQuantity <= 3 && selectedVariant.stockQuantity > 0 ? (
-              <span className="text-[#C91920] font-bold">Only {selectedVariant.stockQuantity} left</span>
+              <span className="text-[#C91920] font-[700]">Only {selectedVariant.stockQuantity} left</span>
             ) : selectedVariant.stockQuantity === 0 ? (
-              <span className="text-rose-600 font-bold">Out of stock</span>
+              <span className="text-rose-600 font-[700]">Out of stock</span>
             ) : (
-              <span className="text-emerald-700">In Stock</span>
+              <span className="text-emerald-700 font-[500]">In Stock</span>
             )}
           </div>
 
@@ -134,7 +134,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                     setSelectedVariant(v);
                   }}
                   disabled={isOutOfStock}
-                  className={`min-h-[26px] min-w-[28px] px-1.5 py-0.5 text-xs font-bold rounded-sm border transition-all cursor-pointer ${
+                  className={`min-h-[26px] min-w-[28px] px-1.5 py-0.5 text-[11px] font-[600] rounded-sm border transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#102F4D] text-white border-[#102F4D]'
                       : isOutOfStock
@@ -154,11 +154,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className="mt-auto pt-2 border-t border-[#E6E3DE] flex items-center justify-between gap-2">
           <div>
             <div className="flex items-baseline gap-1.5 flex-wrap">
-              <span className="text-base sm:text-lg font-black text-[#102F4D]">
+              <span className="text-[14px] sm:text-[15px] md:text-[16px] font-[700] tracking-[-0.3px] text-[#102F4D]">
                 ₹{sellingPrice.toLocaleString('en-IN')}
               </span>
               {mrp > sellingPrice && (
-                <span className="text-xs text-[#6C747C] line-through">
+                <span className="text-[11px] font-[400] text-[#6C747C] line-through">
                   ₹{mrp.toLocaleString('en-IN')}
                 </span>
               )}
@@ -168,7 +168,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <button
             onClick={handleQuickAdd}
             disabled={selectedVariant.stockQuantity <= 0}
-            className={`px-3 py-1.5 sm:py-2 rounded-md font-bold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer ${
+            className={`px-3 py-1.5 sm:py-2 rounded-md font-[600] text-[13px] flex items-center gap-1.5 shadow-xs transition-all cursor-pointer ${
               selectedVariant.stockQuantity <= 0
                 ? 'bg-slate-200 text-slate-500 cursor-not-allowed'
                 : addedAnimation

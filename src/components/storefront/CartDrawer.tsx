@@ -164,7 +164,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#E6E3DE] bg-[#FAF9F6]">
           <div className="flex items-center gap-2">
             <ShoppingBag className="h-5 w-5 text-[#102F4D]" />
-            <h2 className="font-serif font-black text-lg text-[#102F4D] uppercase tracking-wide">
+            <h2 className="font-[700] text-lg text-[#102F4D] uppercase tracking-wide">
               {placedOrder ? 'Order Confirmed' : isCheckingOut ? 'Express Checkout' : 'Shopping Bag'}
             </h2>
             <span className="text-xs bg-[#102F4D] text-white px-2 py-0.5 rounded-full font-bold">
@@ -218,7 +218,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 <span className="text-xs font-black uppercase tracking-widest text-[#C91920]">
                   OFFICIAL STORE ORDER
                 </span>
-                <h3 className="text-2xl font-black text-[#102F4D] font-serif mt-1">
+                <h3 className="text-2xl font-[700] text-[#102F4D] tracking-[-0.5px] mt-1">
                   Thank You, {placedOrder.customerName}!
                 </h3>
                 <p className="text-sm text-[#6C747C] mt-1">
@@ -428,7 +428,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   <div className="h-16 w-16 bg-[#FAF9F6] text-[#6C747C] rounded-full flex items-center justify-center mx-auto border border-[#E6E3DE]">
                     <ShoppingBag className="h-8 w-8" />
                   </div>
-                  <h3 className="font-serif font-black text-lg text-[#102F4D]">
+                  <h3 className="font-[700] text-lg text-[#102F4D]">
                     Your shopping bag is empty
                   </h3>
                   <p className="text-xs text-[#6C747C] max-w-xs mx-auto">

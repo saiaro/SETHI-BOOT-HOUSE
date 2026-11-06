@@ -87,7 +87,7 @@ export const ShopCatalogView: React.FC<ShopCatalogViewProps> = ({
         {/* Page Title & Sort Bar */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#E6E3DE]">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-black text-[#102F4D] font-serif uppercase tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-[700] text-[#102F4D] uppercase tracking-[-0.5px]">
               {pageTitle || 'All Footwear Collection'}
             </h1>
             <p className="text-xs sm:text-sm text-[#6C747C] mt-1 font-normal">
@@ -238,7 +238,7 @@ export const ShopCatalogView: React.FC<ShopCatalogViewProps> = ({
             {filtered.length === 0 ? (
               <div className="bg-white border border-[#E6E3DE] rounded-lg p-12 text-center space-y-3">
                 <Tag className="h-10 w-10 text-[#6C747C] mx-auto" />
-                <h3 className="font-serif font-black text-lg text-[#102F4D]">
+                <h3 className="font-[700] text-lg text-[#102F4D]">
                   No footwear matches your selected filter criteria
                 </h3>
                 <p className="text-xs text-[#6C747C]">

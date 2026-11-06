@@ -184,7 +184,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-nike-court-vision',
-    name: 'Nike Court Vision Low Sneakers',
+    name: 'Nike Court Vision Low',
     description: 'Crisp leather low-top basketball-inspired retro sneakers with classic vulcanised cupsole and perforated toe box.',
     brand: 'Nike',
     category: 'Sneakers',
@@ -192,20 +192,20 @@ export const INITIAL_PRODUCTS: Product[] = [
     manufacturer: 'Nike India Pvt Ltd, Bangalore',
     hsnCode: '6404',
     gstRate: 12,
-    imageUrl: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80',
+    imageUrl: '/assets/aistudio/prod_nike_court.png',
     status: 'active',
     createdAt: '2026-02-15T10:00:00Z',
     updatedAt: '2026-02-15T10:00:00Z',
     variants: [
-      { id: 'var-nike-cvl-wht-7', productId: 'prod-nike-court-vision', sku: 'NIKE-CVL-WHT-7', barcode: '890890100701', size: '7', color: 'Triple White', purchaseCost: 3200, mrp: 5695, sellingPrice: 4799, stockQuantity: 6, reorderLevel: 2 },
-      { id: 'var-nike-cvl-wht-8', productId: 'prod-nike-court-vision', sku: 'NIKE-CVL-WHT-8', barcode: '890890100702', size: '8', color: 'Triple White', purchaseCost: 3200, mrp: 5695, sellingPrice: 4799, stockQuantity: 10, reorderLevel: 3 },
-      { id: 'var-nike-cvl-wht-9', productId: 'prod-nike-court-vision', sku: 'NIKE-CVL-WHT-9', barcode: '890890100703', size: '9', color: 'Triple White', purchaseCost: 3200, mrp: 5695, sellingPrice: 4799, stockQuantity: 8, reorderLevel: 3 },
-      { id: 'var-nike-cvl-wht-10', productId: 'prod-nike-court-vision', sku: 'NIKE-CVL-WHT-10', barcode: '890890100704', size: '10', color: 'Triple White', purchaseCost: 3200, mrp: 5695, sellingPrice: 4799, stockQuantity: 4, reorderLevel: 2 }
+      { id: 'var-nike-cvl-wht-7', productId: 'prod-nike-court-vision', sku: 'NIKE-CVL-WHT-7', barcode: '890890100701', size: '7', color: 'White / Black', purchaseCost: 3200, mrp: 5499, sellingPrice: 4299, stockQuantity: 6, reorderLevel: 2 },
+      { id: 'var-nike-cvl-wht-8', productId: 'prod-nike-court-vision', sku: 'NIKE-CVL-WHT-8', barcode: '890890100702', size: '8', color: 'White / Black', purchaseCost: 3200, mrp: 5499, sellingPrice: 4299, stockQuantity: 10, reorderLevel: 3 },
+      { id: 'var-nike-cvl-wht-9', productId: 'prod-nike-court-vision', sku: 'NIKE-CVL-WHT-9', barcode: '890890100703', size: '9', color: 'White / Black', purchaseCost: 3200, mrp: 5499, sellingPrice: 4299, stockQuantity: 8, reorderLevel: 3 },
+      { id: 'var-nike-cvl-wht-10', productId: 'prod-nike-court-vision', sku: 'NIKE-CVL-WHT-10', barcode: '890890100704', size: '10', color: 'White / Black', purchaseCost: 3200, mrp: 5499, sellingPrice: 4299, stockQuantity: 4, reorderLevel: 2 }
     ]
   },
   {
     id: 'prod-adidas-grand-court',
-    name: 'Adidas Grand Court 2.0 Tennis Shoes',
+    name: 'Adidas Grand Court',
     description: 'Timeless court silhouette with Cloudfoam Comfort sockliner and signature contrast 3-Stripes branding.',
     brand: 'Adidas',
     category: 'Casual Shoes',
@@ -213,19 +213,19 @@ export const INITIAL_PRODUCTS: Product[] = [
     manufacturer: 'Adidas India Marketing Pvt Ltd, Gurugram',
     hsnCode: '6404',
     gstRate: 12,
-    imageUrl: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=800&auto=format&fit=crop&q=80',
+    imageUrl: '/assets/aistudio/prod_adidas_gc.png',
     status: 'active',
     createdAt: '2026-02-16T10:00:00Z',
     updatedAt: '2026-02-16T10:00:00Z',
     variants: [
-      { id: 'var-adi-gc-blk-7', productId: 'prod-adidas-grand-court', sku: 'ADI-GC-BLK-7', barcode: '890901200701', size: '7', color: 'Core Black / White', purchaseCost: 2800, mrp: 4999, sellingPrice: 3999, stockQuantity: 7, reorderLevel: 2 },
-      { id: 'var-adi-gc-blk-8', productId: 'prod-adidas-grand-court', sku: 'ADI-GC-BLK-8', barcode: '890901200702', size: '8', color: 'Core Black / White', purchaseCost: 2800, mrp: 4999, sellingPrice: 3999, stockQuantity: 12, reorderLevel: 3 },
-      { id: 'var-adi-gc-blk-9', productId: 'prod-adidas-grand-court', sku: 'ADI-GC-BLK-9', barcode: '890901200703', size: '9', color: 'Core Black / White', purchaseCost: 2800, mrp: 4999, sellingPrice: 3999, stockQuantity: 9, reorderLevel: 3 }
+      { id: 'var-adi-gc-blk-7', productId: 'prod-adidas-grand-court', sku: 'ADI-GC-BLK-7', barcode: '890901200701', size: '7', color: 'Cloud White / Black', purchaseCost: 2400, mrp: 4999, sellingPrice: 3499, stockQuantity: 7, reorderLevel: 2 },
+      { id: 'var-adi-gc-blk-8', productId: 'prod-adidas-grand-court', sku: 'ADI-GC-BLK-8', barcode: '890901200702', size: '8', color: 'Cloud White / Black', purchaseCost: 2400, mrp: 4999, sellingPrice: 3499, stockQuantity: 12, reorderLevel: 3 },
+      { id: 'var-adi-gc-blk-9', productId: 'prod-adidas-grand-court', sku: 'ADI-GC-BLK-9', barcode: '890901200703', size: '9', color: 'Cloud White / Black', purchaseCost: 2400, mrp: 4999, sellingPrice: 3499, stockQuantity: 9, reorderLevel: 3 }
     ]
   },
   {
     id: 'prod-puma-electrify-nitro',
-    name: 'Puma Electrify Nitro 3 Running Shoes',
+    name: 'Puma Electrify Nitro',
     description: 'Advanced dual-density NITRO FOAM cushioning with engineered breathable mesh and high-traction PUMAGRIP rubber outsole.',
     brand: 'Puma',
     category: 'Sports Shoes',
@@ -233,19 +233,19 @@ export const INITIAL_PRODUCTS: Product[] = [
     manufacturer: 'Puma Sports India Pvt Ltd, Bangalore',
     hsnCode: '6404',
     gstRate: 12,
-    imageUrl: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80',
+    imageUrl: '/assets/aistudio/prod_puma_nitro.png',
     status: 'active',
     createdAt: '2026-02-18T10:00:00Z',
     updatedAt: '2026-02-18T10:00:00Z',
     variants: [
-      { id: 'var-puma-en-org-7', productId: 'prod-puma-electrify-nitro', sku: 'PUMA-EN3-ORG-7', barcode: '890112300701', size: '7', color: 'Fiery Coral / Lime', purchaseCost: 3800, mrp: 6999, sellingPrice: 5499, stockQuantity: 5, reorderLevel: 2 },
-      { id: 'var-puma-en-org-8', productId: 'prod-puma-electrify-nitro', sku: 'PUMA-EN3-ORG-8', barcode: '890112300702', size: '8', color: 'Fiery Coral / Lime', purchaseCost: 3800, mrp: 6999, sellingPrice: 5499, stockQuantity: 8, reorderLevel: 2 },
-      { id: 'var-puma-en-org-9', productId: 'prod-puma-electrify-nitro', sku: 'PUMA-EN3-ORG-9', barcode: '890112300703', size: '9', color: 'Fiery Coral / Lime', purchaseCost: 3800, mrp: 6999, sellingPrice: 5499, stockQuantity: 7, reorderLevel: 2 }
+      { id: 'var-puma-en-org-7', productId: 'prod-puma-electrify-nitro', sku: 'PUMA-EN3-ORG-7', barcode: '890112300701', size: '7', color: 'Black / White', purchaseCost: 2700, mrp: 5299, sellingPrice: 3999, stockQuantity: 5, reorderLevel: 2 },
+      { id: 'var-puma-en-org-8', productId: 'prod-puma-electrify-nitro', sku: 'PUMA-EN3-ORG-8', barcode: '890112300702', size: '8', color: 'Black / White', purchaseCost: 2700, mrp: 5299, sellingPrice: 3999, stockQuantity: 8, reorderLevel: 2 },
+      { id: 'var-puma-en-org-9', productId: 'prod-puma-electrify-nitro', sku: 'PUMA-EN3-ORG-9', barcode: '890112300703', size: '9', color: 'Black / White', purchaseCost: 2700, mrp: 5299, sellingPrice: 3999, stockQuantity: 7, reorderLevel: 2 }
     ]
   },
   {
     id: 'prod-skechers-gowalk6',
-    name: 'Skechers GO WALK 6 Slip-Ins',
+    name: 'Skechers Go Walk 6',
     description: 'Ultra-lightweight responsive ULTRA GO cushioning with Hyper Pillar Technology and Air-Cooled Goga Mat insole.',
     brand: 'Skechers',
     category: 'Casual Shoes',
@@ -253,14 +253,14 @@ export const INITIAL_PRODUCTS: Product[] = [
     manufacturer: 'Skechers South Asia Pvt Ltd, Mumbai',
     hsnCode: '6404',
     gstRate: 12,
-    imageUrl: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=800&auto=format&fit=crop&q=80',
+    imageUrl: '/assets/aistudio/prod_skechers_gw6.png',
     status: 'active',
     createdAt: '2026-02-20T10:00:00Z',
     updatedAt: '2026-02-20T10:00:00Z',
     variants: [
-      { id: 'var-skc-gw6-nvy-7', productId: 'prod-skechers-gowalk6', sku: 'SKC-GW6-NVY-7', barcode: '890223400701', size: '7', color: 'Navy / Charcoal', purchaseCost: 3100, mrp: 5999, sellingPrice: 4799, stockQuantity: 6, reorderLevel: 2 },
-      { id: 'var-skc-gw6-nvy-8', productId: 'prod-skechers-gowalk6', sku: 'SKC-GW6-NVY-8', barcode: '890223400702', size: '8', color: 'Navy / Charcoal', purchaseCost: 3100, mrp: 5999, sellingPrice: 4799, stockQuantity: 11, reorderLevel: 3 },
-      { id: 'var-skc-gw6-nvy-9', productId: 'prod-skechers-gowalk6', sku: 'SKC-GW6-NVY-9', barcode: '890223400703', size: '9', color: 'Navy / Charcoal', purchaseCost: 3100, mrp: 5999, sellingPrice: 4799, stockQuantity: 8, reorderLevel: 2 }
+      { id: 'var-skc-gw6-nvy-7', productId: 'prod-skechers-gowalk6', sku: 'SKC-GW6-NVY-7', barcode: '890223400701', size: '7', color: 'Navy Blue', purchaseCost: 3200, mrp: 5999, sellingPrice: 4799, stockQuantity: 6, reorderLevel: 2 },
+      { id: 'var-skc-gw6-nvy-8', productId: 'prod-skechers-gowalk6', sku: 'SKC-GW6-NVY-8', barcode: '890223400702', size: '8', color: 'Navy Blue', purchaseCost: 3200, mrp: 5999, sellingPrice: 4799, stockQuantity: 11, reorderLevel: 3 },
+      { id: 'var-skc-gw6-nvy-9', productId: 'prod-skechers-gowalk6', sku: 'SKC-GW6-NVY-9', barcode: '890223400703', size: '9', color: 'Navy Blue', purchaseCost: 3200, mrp: 5999, sellingPrice: 4799, stockQuantity: 8, reorderLevel: 2 }
     ]
   },
   {

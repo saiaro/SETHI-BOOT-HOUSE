@@ -19,7 +19,7 @@ export const StoreLocatorModal: React.FC<StoreLocatorModalProps> = ({ isOpen, on
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#E6E3DE] bg-[#FAF9F6]">
           <div className="flex items-center gap-2">
             <Store className="h-5 w-5 text-[#102F4D]" />
-            <h3 className="font-serif font-black text-lg text-[#102F4D] uppercase">
+            <h3 className="font-[700] text-lg text-[#102F4D] uppercase">
               Visit Sethi Boot House
             </h3>
           </div>
@@ -44,7 +44,7 @@ export const StoreLocatorModal: React.FC<StoreLocatorModalProps> = ({ isOpen, on
                 <span className="bg-[#C91920] text-white text-[10px] font-extrabold px-2 py-0.5 rounded uppercase">
                   Flagship Showroom
                 </span>
-                <p className="font-serif font-black text-xl mt-1">SETHI BOOT HOUSE</p>
+                <p className="font-[700] text-xl mt-1">SETHI BOOT HOUSE</p>
                 <p className="text-xs text-white/90">Main Road, Near Bus Stand, Ratia (Haryana)</p>
               </div>
             </div>

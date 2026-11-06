@@ -33,15 +33,15 @@ export const StorefrontFooter: React.FC<StorefrontFooterProps> = ({
           {/* Brand & Mission (Col 1 & 2 on large) */}
           <div className="lg:col-span-2 space-y-4">
             <div>
-              <span className="text-2xl font-black tracking-tight text-white uppercase font-serif">
+              <span className="text-[28px] font-[800] tracking-[-1px] text-white uppercase leading-none block">
                 SETHI BOOT HOUSE
               </span>
-              <p className="text-xs text-[#EAF2F8]/70 uppercase tracking-widest font-semibold mt-0.5">
+              <p className="text-[10px] font-[700] text-[#EAF2F8]/70 uppercase tracking-[2px] mt-1">
                 Ratia, Fatehabad, Haryana • Est. 1998
               </p>
             </div>
 
-            <p className="text-sm text-slate-300 leading-relaxed font-normal max-w-sm">
+            <p className="text-[13px] text-slate-300 leading-[1.55] font-[400] max-w-sm">
               Ratia’s premier multi-brand footwear destination. Authorized retailer for genuine Nike, Adidas, Puma, Skechers, Red Chief, Woodland, Campus and authentic Indian leather shoes.
             </p>
 
@@ -78,10 +78,10 @@ export const StorefrontFooter: React.FC<StorefrontFooterProps> = ({
 
           {/* Shop Categories */}
           <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-widest text-[#EAF2F8] border-b border-white/10 pb-2">
+            <h4 className="text-[11px] font-[700] uppercase tracking-[2px] text-[#EAF2F8] border-b border-white/10 pb-2">
               Categories
             </h4>
-            <ul className="space-y-2 text-sm text-slate-300">
+            <ul className="space-y-2 text-[11px] font-[500] text-slate-300">
               <li>
                 <button 
                   onClick={() => onSelectCategory('Sneakers')}
@@ -127,10 +127,10 @@ export const StorefrontFooter: React.FC<StorefrontFooterProps> = ({
 
           {/* Customer Care */}
           <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-widest text-[#EAF2F8] border-b border-white/10 pb-2">
+            <h4 className="text-[11px] font-[700] uppercase tracking-[2px] text-[#EAF2F8] border-b border-white/10 pb-2">
               Customer Support
             </h4>
-            <ul className="space-y-2 text-sm text-slate-300">
+            <ul className="space-y-2 text-[11px] font-[500] text-slate-300">
               <li>
                 <button onClick={onOpenAbout} className="hover:text-white transition-colors text-left">
                   About Us
@@ -163,10 +163,10 @@ export const StorefrontFooter: React.FC<StorefrontFooterProps> = ({
 
           {/* Physical Store Contact */}
           <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-widest text-[#EAF2F8] border-b border-white/10 pb-2">
+            <h4 className="text-[11px] font-[700] uppercase tracking-[2px] text-[#EAF2F8] border-b border-white/10 pb-2">
               Visit Store
             </h4>
-            <div className="space-y-2.5 text-xs text-slate-300">
+            <div className="space-y-2.5 text-[11px] font-[500] text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-[#C91920] shrink-0 mt-0.5" />
                 <span>Main Road, Near Bus Stand, Ratia, Haryana 125051</span>
@@ -183,7 +183,7 @@ export const StorefrontFooter: React.FC<StorefrontFooterProps> = ({
               <div className="pt-2">
                 <button
                   onClick={onOpenStoreLocator}
-                  className="w-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2 px-3 rounded text-center transition-colors border border-white/10"
+                  className="w-full bg-white/10 hover:bg-white/20 text-white font-[600] text-[11px] py-2 px-3 rounded text-center transition-colors border border-white/10"
                 >
                   Get Directions in Ratia →
                 </button>
@@ -194,15 +194,15 @@ export const StorefrontFooter: React.FC<StorefrontFooterProps> = ({
         </div>
 
         {/* Bottom Bar: Copyright & Verified Trust */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div>
-            <p>© 2027 SETHI BOOT HOUSE. All Rights Reserved.</p>
-            <p className="text-[11px] text-slate-500 mt-0.5">
+            <p className="font-[400]">© 2027 SETHI BOOT HOUSE. All Rights Reserved.</p>
+            <p className="font-[500] text-slate-400 mt-0.5">
               Ratia, Fatehabad, Haryana, India.
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-400 text-xs">
+          <div className="flex items-center gap-4 text-slate-400 text-[11px] font-[500]">
             <span className="flex items-center gap-1">
               <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
               <span>100% Genuine Brands</span>

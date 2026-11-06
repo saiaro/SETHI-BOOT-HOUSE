@@ -79,13 +79,33 @@ export class StorageEngine {
   private constructor() {
     this.settings = loadFromStorage(DB_KEYS.SETTINGS, INITIAL_SETTINGS);
     const storedProducts = loadFromStorage<Product[]>(DB_KEYS.PRODUCTS, INITIAL_PRODUCTS);
-    // Ensure newly catalogued models (Nike, Adidas, Puma, Skechers, Reebok, Woodland) exist in storage
-    const existingIds = new Set(storedProducts.map(p => p.id));
+    const initialMap = new Map(INITIAL_PRODUCTS.map(p => [p.id, p]));
+    // Sync updated product image assets and pricing for initial catalog items
+    this.products = storedProducts.map(p => {
+      const init = initialMap.get(p.id);
+      if (init) {
+        return {
+          ...p,
+          name: init.name,
+          imageUrl: init.imageUrl,
+          variants: p.variants.map((v, i) => {
+            const initVar = init.variants?.[i];
+            if (initVar) {
+              return { ...v, sellingPrice: initVar.sellingPrice, mrp: initVar.mrp };
+            }
+            return v;
+          })
+        };
+      }
+      return p;
+    });
+    // Add any missing catalog items
+    const existingIds = new Set(this.products.map(p => p.id));
     const missing = INITIAL_PRODUCTS.filter(p => !existingIds.has(p.id));
-    this.products = missing.length > 0 ? [...storedProducts, ...missing] : storedProducts;
     if (missing.length > 0) {
-      saveToStorage(DB_KEYS.PRODUCTS, this.products);
+      this.products = [...this.products, ...missing];
     }
+    saveToStorage(DB_KEYS.PRODUCTS, this.products);
     this.customers = loadFromStorage(DB_KEYS.CUSTOMERS, INITIAL_CUSTOMERS);
     this.suppliers = loadFromStorage(DB_KEYS.SUPPLIERS, INITIAL_SUPPLIERS);
     this.invoices = loadFromStorage(DB_KEYS.INVOICES, INITIAL_INVOICES);

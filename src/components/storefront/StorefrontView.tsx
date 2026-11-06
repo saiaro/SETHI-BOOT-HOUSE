@@ -183,6 +183,9 @@ export const StorefrontView: React.FC<StorefrontViewProps> = ({ onSwitchToAdmin 
               onExploreSportsClick={() => handleSelectCategory('Sports Shoes')}
             />
 
+            {/* Auto-scrolling Brand Showcase right after Hero */}
+            <BrandShowcase onSelectBrand={handleSelectBrand} />
+
             {/* Shop by Category (5 cards) */}
             <CategoryGrid onSelectCategory={handleSelectCategory} />
 
@@ -195,9 +198,6 @@ export const StorefrontView: React.FC<StorefrontViewProps> = ({ onSwitchToAdmin 
               wishlistIds={wishlistIds}
               onViewAllClick={() => handleSelectTab('shop')}
             />
-
-            {/* Brand Showcase */}
-            <BrandShowcase onSelectBrand={handleSelectBrand} />
 
             {/* Physical Store Showcase (Ratia, Haryana) */}
             <StoreShowcase
@@ -215,10 +215,10 @@ export const StorefrontView: React.FC<StorefrontViewProps> = ({ onSwitchToAdmin 
         ) : activeTab === 'brands' ? (
           <>
             <div className="bg-[#FAF9F6] py-8 text-center border-b border-[#E6E3DE]">
-              <span className="text-xs font-black uppercase tracking-widest text-[#C91920]">
+              <span className="text-[11px] font-[700] uppercase tracking-[3px] text-[#C91920]">
                 ALL 100% ORIGINAL BRANDS
               </span>
-              <h1 className="text-3xl font-black font-serif text-[#102F4D] mt-1">
+              <h1 className="text-2xl sm:text-3xl font-[700] text-[#102F4D] tracking-[-1px] mt-1">
                 Authorized Footwear Brands in Ratia
               </h1>
             </div>

@@ -96,7 +96,14 @@ const AppContent: React.FC = () => {
           <div className="fixed bottom-4 left-4 z-50">
             <button
               onClick={() => setViewMode('admin')}
-              className="flex items-center gap-2 bg-[#102F4D] hover:bg-[#183E5D] text-white px-3.5 py-2 rounded-full text-xs font-bold shadow-2xl border border-white/20 transition-transform hover:scale-105 cursor-pointer backdrop-blur-md"
+              style={{
+                paddingTop: '8px',
+                paddingBottom: '8px',
+                paddingLeft: '15px',
+                marginBottom: '49px',
+                marginLeft: '-8px'
+              }}
+              className="flex items-center gap-2 bg-[#102F4D] hover:bg-[#183E5D] text-white pr-3.5 rounded-full text-xs font-bold shadow-2xl border border-white/20 transition-transform hover:scale-105 cursor-pointer backdrop-blur-md"
               title="Switch to Sethi Boot House ERP & POS Management Console"
             >
               <LayoutDashboard className="h-4 w-4 text-[#C91920]" />

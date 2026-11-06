@@ -16,7 +16,7 @@ export const AboutContactModals: React.FC<InfoModalProps> = ({ type, onClose }) 
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#E6E3DE] bg-[#FAF9F6]">
-          <h3 className="font-serif font-black text-lg text-[#102F4D] uppercase">
+          <h3 className="font-[700] text-lg text-[#102F4D] uppercase">
             {type === 'about' ? 'About Sethi Boot House' : 'Customer Support & Contact'}
           </h3>
           <button

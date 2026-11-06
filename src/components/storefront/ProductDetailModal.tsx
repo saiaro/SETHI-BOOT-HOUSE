@@ -83,8 +83,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="overflow-y-auto p-5 sm:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="overflow-y-auto p-4 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 items-start">
             
             {/* Left: Product Image & Badges */}
             <div className="space-y-4">
@@ -130,7 +130,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <p className="text-xs font-bold uppercase tracking-widest text-[#6C747C]">
                   {product.gender}'s Footwear
                 </p>
-                <h2 className="text-2xl sm:text-3xl font-black text-[#102F4D] font-serif tracking-tight mt-1">
+                <h2 className="text-2xl sm:text-3xl font-[700] text-[#102F4D] tracking-[-1px] mt-1">
                   {product.name}
                 </h2>
                 <p className="text-xs text-[#6C747C] mt-0.5">

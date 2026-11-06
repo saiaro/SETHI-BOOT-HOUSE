@@ -29,7 +29,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#E6E3DE] bg-[#FAF9F6]">
           <div className="flex items-center gap-2">
             <Heart className="h-5 w-5 text-[#C91920] fill-[#C91920]" />
-            <h2 className="font-serif font-black text-lg text-[#102F4D] uppercase tracking-wide">
+            <h2 className="font-[700] text-lg text-[#102F4D] uppercase tracking-wide">
               Saved Footwear
             </h2>
             <span className="text-xs bg-[#C91920] text-white px-2 py-0.5 rounded-full font-bold">
@@ -53,7 +53,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
               <div className="h-16 w-16 bg-[#FAF9F6] text-[#6C747C] rounded-full flex items-center justify-center mx-auto border border-[#E6E3DE]">
                 <Heart className="h-8 w-8 text-[#C91920]" />
               </div>
-              <h3 className="font-serif font-black text-lg text-[#102F4D]">
+              <h3 className="font-[700] text-lg text-[#102F4D]">
                 Your wishlist is empty
               </h3>
               <p className="text-xs text-[#6C747C] max-w-xs mx-auto">

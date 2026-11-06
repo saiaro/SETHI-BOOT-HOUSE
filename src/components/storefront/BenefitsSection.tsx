@@ -49,10 +49,10 @@ export const BenefitsSection: React.FC = () => {
                   <Icon className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm sm:text-base text-[#102F4D] leading-snug">
+                  <h3 className="text-[12px] font-[700] text-[#102F4D] leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#6C747C] mt-1 leading-normal font-normal">
+                  <p className="text-[11px] font-[400] text-[#6C747C] mt-0.5 leading-normal">
                     {item.description}
                   </p>
                 </div>
